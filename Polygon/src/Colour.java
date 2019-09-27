@@ -2,6 +2,7 @@ public class Colour {
     private int red;
     private int green;
     private int blue;
+    //Todo: Simplify this class
 
     public Colour(int red, int green, int blue) {
         this.red = red;
@@ -9,18 +10,8 @@ public class Colour {
         this.blue = blue;
     }
 
-    public Colour(String hex) {
-        if(hex.length()==7){
-            convertHexToInt(hex);
-        }else{
-            convertHexToInt("#000000");
-        }
-    }
-
-    private void convertHexToInt(String hex){
-        this.red= Integer.valueOf(hex.substring(1,3), 16).intValue();
-        this.green = Integer.valueOf(hex.substring(3,5), 16).intValue();
-        this.blue = Integer.valueOf(hex.substring(5,7), 16).intValue();
+    public void set(int red, int green, int blue) {
+        //Todo: implement set method.
     }
 
     public int getRed() {
@@ -35,7 +26,25 @@ public class Colour {
         return blue;
     }
 
-    public String toHex(int red,int green, int blue){
-        return "#"+Integer.toHexString(red)+Integer.toHexString(green)+Integer.toHexString(blue);
+    public boolean isBlack() {
+        //Todo: implement isBlack method.
+        return false;
+    }
+
+    public Colour copy() {
+        //Todo: implement copy().
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+        //Todo: implement equals.
+    }
+
+    @Override
+    public String toString() {
+        return "";
+        //Todo: implement toString.
     }
 }
