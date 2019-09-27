@@ -1,7 +1,9 @@
+import java.util.Objects;
+
 public class Polygon {
     private int numberOfEdges;
     private Colour lineColour;
-    private Colour fillColour;
+    private Colour fillColour=null;
 
     public Polygon(int numberOfEdges, Colour lineColour) {
         this.numberOfEdges = numberOfEdges;
@@ -10,6 +12,7 @@ public class Polygon {
 
     public Polygon(int numberOfEdges) {
         this.numberOfEdges = numberOfEdges;
+        this.lineColour= new Colour(0,0,0);
     }
 
     public int getNumberOfEdges() {
@@ -33,24 +36,43 @@ public class Polygon {
     }
 
     public boolean isFilled() {
+        if(this.fillColour!=null){
+            return true;
+        }
         return false;
         //Todo: implement isFilled.
     }
 
     public String getName() {
-        return "";
+        switch (this.getNumberOfEdges()){
+            case 3:return "Triangle";
+            case 4:return "Rectangle";
+            case 5:return "Pentagon";
+            case 6:return "Hexagon";
+            case 7:return "Heptagon";
+            case 8:return "Octagon";
+            default:return "Polygon";
+
+        }
         //Todo: implement getName.
     }
 
-    public boolean equals(Polygon obj) {
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Polygon polygon = (Polygon) o;
+        return getNumberOfEdges() == polygon.getNumberOfEdges() &&
+                getLineColour().equals(polygon.getLineColour()) &&
+                getFillColour().equals(polygon.getFillColour());
+
         //Todo: implement equals.
     }
 
     @Override
     public String toString() {
-        return "";
-        //Todo: implment toString;
+        return this.getName()+" Line: "+this.lineColour.toString()+" Fill: "+this.fillColour;
+        //Todo: implement toString;
     }
 
 }

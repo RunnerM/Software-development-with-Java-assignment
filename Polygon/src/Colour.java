@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Colour {
     private int red;
     private int green;
@@ -11,6 +13,9 @@ public class Colour {
     }
 
     public void set(int red, int green, int blue) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
         //Todo: implement set method.
     }
 
@@ -27,24 +32,34 @@ public class Colour {
     }
 
     public boolean isBlack() {
-        //Todo: implement isBlack method.
+        if (this.getRed()==0&&this.getBlue()==0&&this.getGreen()==0){
+            return true;
+        }
         return false;
+        //Todo: implement isBlack method.
+
     }
 
     public Colour copy() {
         //Todo: implement copy().
-        return this;
+        return new Colour(this.getRed(),this.getGreen(),this.getBlue());
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-        //Todo: implement equals.
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Colour colour = (Colour) o;
+        return getRed() == colour.getRed() &&
+                getGreen() == colour.getGreen() &&
+                getBlue() == colour.getBlue();
+
+        //Todo: implement equals
     }
 
     @Override
     public String toString() {
-        return "";
+        return "R: "+this.getRed()+" G: "+this.getGreen()+" B: "+this.getBlue();
         //Todo: implement toString.
     }
 }
