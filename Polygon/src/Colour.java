@@ -7,9 +7,7 @@ public class Colour {
     //Todo: Simplify this class
 
     public Colour(int red, int green, int blue) {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
+        set(red,green,blue);
     }
 
     public void set(int red, int green, int blue) {
