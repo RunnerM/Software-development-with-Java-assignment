@@ -27,6 +27,8 @@ public class Brain {
             return 70;
         }
         return 0;
+
+        // Todo: Testing shows 70IQ no matter the length of stored info
     }
 
     public void remember(String info) {
@@ -48,6 +50,8 @@ public class Brain {
                 passiveMemoryItemTwo = helper2;
             }
         }
+
+        //Todo: Testing shows that remember() stores info in 2 empty spots - Topic 1 and topic 3, Also Storing more info then stores that info into Topic 1 and Topic 2
     }
 
     public void refreshMemory(String info) {

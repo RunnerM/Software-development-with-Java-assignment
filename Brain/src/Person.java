@@ -27,7 +27,7 @@ public class Person {
 
     public void learnATopic(String topic) {
         brain.remember(topic);
-        //Todo: test if it works like it is supposed to
+        //Todo: Fix Brain.java remember() method
     }
 
     public String presentTopic(int number) {
