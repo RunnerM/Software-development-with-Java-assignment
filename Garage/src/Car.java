@@ -40,9 +40,5 @@ public class Car {
     @Override
     public String toString() {
         return "Owner: "+owner+" Colour: "+colour+" Registration Number: "+registrationNumber;
-        //Todo: implement toString.
     }
-//    public Car copy(){
-//        return new Car(this.colour,this.owner,this.registrationNumber);
-//    }
 }

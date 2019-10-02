@@ -28,7 +28,7 @@ public class Polygon {
     }
 
     public void fill(Colour colour) {
-        this.fillColour = colour;
+        this.fillColour = colour.copy();
     }
 
     public void removeFillColour() {

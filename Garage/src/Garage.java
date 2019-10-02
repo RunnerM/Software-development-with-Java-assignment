@@ -19,7 +19,7 @@ public class Garage {
                 }
         }
         return false;
-        //Todo: implement isParkingAreaTaken.
+
     }
 
     public void park(Car car, int position) {
@@ -30,19 +30,18 @@ public class Garage {
                 this.car2 = car;
         }
 
-        //Todo: implement park.
+
     }
 
     public Car takeACarRide(int Position) {
         Car carH= car1;
         this.car1= null;
         return carH;
-        //Todo: implement takeACar.
+
     }
 
     @Override
     public String toString() {
         return "car1: ;"+car1+"car2: "+car2;
-        //Todo: implement toString.
     }
 }

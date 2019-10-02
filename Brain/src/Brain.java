@@ -1,19 +1,26 @@
 public class Brain {
-    //Todo: implement this class.
     private String activeMemoryItem;
     private String passiveMemoryItemOne;
     private String passiveMemoryItemTwo;
 
     public Brain() {
+        this.activeMemoryItem="";
+        this.passiveMemoryItemOne="";
+        this.passiveMemoryItemTwo="";
         //Todo: implement Constructor.
     }
 
     public int getIQ() {
-        return 0;
+//        if () {
+//            return 0;
+//        }
         //Todo: implement getIQ.
     }
 
     public void remember(String info) {
+        if (info.equals(activeMemoryItem)||info.equals(passiveMemoryItemOne)||info.equals(passiveMemoryItemTwo)){
+
+        }
         // Todo: implement remember.
     }
 

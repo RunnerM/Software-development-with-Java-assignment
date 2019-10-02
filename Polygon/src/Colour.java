@@ -4,7 +4,6 @@ public class Colour {
     private int red;
     private int green;
     private int blue;
-    //Todo: Simplify this class
 
     public Colour(int red, int green, int blue) {
         set(red,green,blue);
@@ -14,7 +13,6 @@ public class Colour {
         this.red = red;
         this.green = green;
         this.blue = blue;
-        //Todo: implement set method.
     }
 
     public int getRed() {
@@ -34,12 +32,12 @@ public class Colour {
             return true;
         }
         return false;
-        //Todo: implement isBlack method.
+
 
     }
 
     public Colour copy() {
-        //Todo: implement copy().
+
         return new Colour(this.getRed(),this.getGreen(),this.getBlue());
     }
 
@@ -51,13 +49,10 @@ public class Colour {
         return getRed() == colour.getRed() &&
                 getGreen() == colour.getGreen() &&
                 getBlue() == colour.getBlue();
-
-        //Todo: implement equals
     }
 
     @Override
     public String toString() {
         return "R: "+this.getRed()+" G: "+this.getGreen()+" B: "+this.getBlue();
-        //Todo: implement toString.
     }
 }
