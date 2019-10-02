@@ -43,13 +43,19 @@ public class Colour {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (this == null) return false;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Colour)){
+            return false;
+        }
         Colour colour = (Colour) o;
-        return getRed() == colour.getRed() &&
-                getGreen() == colour.getGreen() &&
-                getBlue() == colour.getBlue();
+        if(this == null && o == null){
+            return true;
+        } else if (this == null || o == null){
+            return false;
+        } else {
+            return getRed() == colour.getRed() &&
+                    getGreen() == colour.getGreen() &&
+                    getBlue() == colour.getBlue();
+        }
     }
 
     @Override

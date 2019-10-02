@@ -64,16 +64,19 @@ public class Polygon {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Polygon)){
+            return false;
+        }
         Polygon polygon = (Polygon) o;
-        if (polygon.getFillColour() == null && getFillColour() == null){
-            return getNumberOfEdges() == polygon.getNumberOfEdges() &&
-                    getLineColour().equals(polygon.getLineColour());
-        }else{
+        if (isFilled() && ((Polygon) o).isFilled()){
             return getNumberOfEdges() == polygon.getNumberOfEdges() &&
                     getLineColour().equals(polygon.getLineColour()) &&
                     getFillColour().equals(polygon.getFillColour());
+        } else if (isFilled() && ((Polygon) o).isFilled()){
+            return false;
+        } else {
+            return getNumberOfEdges() == polygon.getNumberOfEdges() &&
+                    getLineColour().equals(polygon.getLineColour());
         }
     }
 
