@@ -33,15 +33,24 @@ public class Garage {
 
     }
 
-    public Car takeACarRide(int Position) {
-        Car carH= car1;
-        this.car1= null;
-        return carH;
-
+    public Car takeACarRide(int position) {
+        Car carH;
+        switch(position){
+            case 2: {
+                carH = car2;
+                this.car2 = null;
+                return carH;
+            }
+            default: {
+                carH = car1;
+                this.car1 = null;
+                return carH;
+            }
+        }
     }
 
     @Override
     public String toString() {
-        return "car1: ;"+car1+"car2: "+car2;
+        return "car1: "+car1+" car2: "+car2;
     }
 }

@@ -3,14 +3,13 @@ public class Car {
     private int registrationNumber;
 
     public Car(String colour) {
-        this.colour = colour;
+        setColour(colour);
     }
 
     public Car(String colour, String owner, int registrationNumber) {
-        this.colour = colour;
-        this.owner = owner;
-        this.registrationNumber = registrationNumber;
-
+        setColour(colour);
+        setOwner(owner);
+        setRegistrationNumber(registrationNumber);
     }
 
     public String getColour() {
