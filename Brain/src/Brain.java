@@ -4,41 +4,90 @@ public class Brain {
     private String passiveMemoryItemTwo;
 
     public Brain() {
-        this.activeMemoryItem="";
-        this.passiveMemoryItemOne="";
-        this.passiveMemoryItemTwo="";
-        //Todo: implement Constructor.
+        this.activeMemoryItem = "";
+        this.passiveMemoryItemOne = "";
+        this.passiveMemoryItemTwo = "";
+    }
+
+    public Brain(String activeMemoryItem, String passiveMemoryItemOne, String passiveMemoryItemTwo) {
+        this.activeMemoryItem = activeMemoryItem;
+        this.passiveMemoryItemOne = passiveMemoryItemOne;
+        this.passiveMemoryItemTwo = passiveMemoryItemTwo;
     }
 
     public int getIQ() {
-//        if () {
-//            return 0;
-//        }
-        //Todo: implement getIQ.
+        if ((activeMemoryItem.length()>10 && passiveMemoryItemOne.length()>10 && passiveMemoryItemTwo.length()>10)&&
+                (activeMemoryItem.length()>20^passiveMemoryItemOne.length()>20^passiveMemoryItemTwo.length()>20)) {
+            return 130;
+        }
+        if (activeMemoryItem.length()>10 && passiveMemoryItemOne.length()>10 && passiveMemoryItemTwo.length()>10){
+            return 100;
+        }
+        if(activeMemoryItem.length()<10 || passiveMemoryItemOne.length()<10 || passiveMemoryItemTwo.length()<10){
+            return 70;
+        }
+        return 0;
     }
 
     public void remember(String info) {
-        if (info.equals(activeMemoryItem)||info.equals(passiveMemoryItemOne)||info.equals(passiveMemoryItemTwo)){
-
+        if (info.equals(activeMemoryItem) || info.equals(passiveMemoryItemOne) || info.equals(passiveMemoryItemTwo)) {
+            refreshMemory(info);
+        } else {
+            if (activeMemoryItem.equals("")) {
+                activeMemoryItem = info;
+            }
+            if (passiveMemoryItemOne.equals("")) {
+                String helper = activeMemoryItem;
+                activeMemoryItem = info;
+                passiveMemoryItemOne = helper;
+            } else {
+                String helper1 = activeMemoryItem;
+                String helper2 = passiveMemoryItemOne;
+                activeMemoryItem = info;
+                passiveMemoryItemOne = helper1;
+                passiveMemoryItemTwo = helper2;
+            }
         }
-        // Todo: implement remember.
     }
 
     public void refreshMemory(String info) {
-        //Todo: implement refreshMemory.
+        if (info.equals(passiveMemoryItemOne)) {
+            String helper = activeMemoryItem;
+            activeMemoryItem = passiveMemoryItemOne;
+            passiveMemoryItemOne = helper;
+        }
+        if (info.equals(passiveMemoryItemTwo)) {
+            String helper1 = activeMemoryItem;
+            String helperA = passiveMemoryItemTwo;
+            String helper2 = passiveMemoryItemOne;
+            activeMemoryItem = helperA;
+            passiveMemoryItemOne = helper1;
+            passiveMemoryItemTwo = helper2;
+        }
     }
 
     public boolean recall(String info) {
+        if (info.equals(activeMemoryItem) || info.equals(passiveMemoryItemOne) || info.equals(passiveMemoryItemTwo)) {
+            refreshMemory(info);
+            return true;
+        }
         return false;
-        //Todo: implement recall1.
     }
 
     public String recall() {
-        return "";
-        //Todo: implement recall2.
+        return this.activeMemoryItem;
     }
 
     public void bringPassiveToActive(int number) {
-        //Todo: implement bringPassiveToActive
+        switch (number){
+            case 1:refreshMemory(this.passiveMemoryItemOne);
+            case 2:refreshMemory(this.passiveMemoryItemTwo);
+            default:
+                System.out.println("Error with argument!");
+        }
+    }
+
+    public Brain copy() {
+        return new Brain(this.activeMemoryItem, this.passiveMemoryItemOne, this.passiveMemoryItemTwo);
     }
 }
