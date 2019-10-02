@@ -7,7 +7,7 @@ public class Polygon {
 
     public Polygon(int numberOfEdges, Colour lineColour) {
         this.numberOfEdges = numberOfEdges;
-        this.lineColour = lineColour;
+        this.lineColour = lineColour.copy();
     }
 
     public Polygon(int numberOfEdges) {
@@ -19,12 +19,12 @@ public class Polygon {
         return numberOfEdges;
     }
 
-    public Colour getLineColour() {
-        return lineColour;
-    }
-
     public Colour getFillColour() {
         return fillColour;
+    }
+
+    public Colour getLineColour() {
+        return lineColour;
     }
 
     public void fill(Colour colour) {
@@ -67,14 +67,23 @@ public class Polygon {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Polygon polygon = (Polygon) o;
-        return getNumberOfEdges() == polygon.getNumberOfEdges() &&
-                getLineColour().equals(polygon.getLineColour()) &&
-                getFillColour().equals(polygon.getFillColour());
+        if (polygon.getFillColour() == null && getFillColour() == null){
+            return getNumberOfEdges() == polygon.getNumberOfEdges() &&
+                    getLineColour().equals(polygon.getLineColour());
+        }else{
+            return getNumberOfEdges() == polygon.getNumberOfEdges() &&
+                    getLineColour().equals(polygon.getLineColour()) &&
+                    getFillColour().equals(polygon.getFillColour());
+        }
     }
 
     @Override
     public String toString() {
-        return this.getName() + " Line: " + this.lineColour.toString() + " Fill: " + this.fillColour;
+        if(isFilled()){
+            return this.getName() + " Line: " + this.getLineColour().toString() + " Fill: " + this.getFillColour();
+        }else{
+            return this.getName() + " Line: " + this.getLineColour().toString() + " Fill: Not Filled";
+        }
     }
 
 }

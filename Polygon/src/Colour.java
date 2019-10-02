@@ -44,6 +44,7 @@ public class Colour {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+        if (this == null) return false;
         if (o == null || getClass() != o.getClass()) return false;
         Colour colour = (Colour) o;
         return getRed() == colour.getRed() &&
